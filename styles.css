@@ -1,0 +1,110 @@
+body {
+    background-color: #f9f7fe;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    background-color: #fff;
+    max-width: 600px;
+    margin: 45px auto;
+    box-shadow: 0 30px 50px rgba(65, 50, 100, 0.8);
+    border-radius: 16px;
+    padding: 30px;
+}
+
+header {
+    border-bottom: 1px solid #f9f7fe;
+    padding-bottom: 30px;
+}
+
+.search-input {
+    background-color: #f9f7fe;
+    border: none;
+    border-radius: 6px;
+    width: 73%;
+    font-size: 16px;
+    padding: 15px 20px;
+}
+
+.search-input:focus {
+    outline: none;
+    box-shadow: 0 0 5px lightblue;
+}
+
+.search-input::placeholder {
+    color: #999;
+}
+
+.search-button {
+    background-color: lightblue;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    margin-left: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+main {
+    padding: 30px 0;
+}
+
+.weather-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+p {
+    color: #AAA;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+p strong {
+    color: #da4b4b;
+}
+
+.city {
+    margin: 0;
+    font-size: 38px;
+    line-height: 48px;
+}
+
+.temperature-container {
+    display: flex;
+}
+.current-temp-img {
+    font-size: 44px;
+    margin-top: 22px;
+}
+
+.current-temperature {
+    font-size: 88px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.current-temperature-unit {
+    font-size: 24px;
+    margin-top: 22px;
+}
+
+
+footer {
+    border-top: 1px solid #f9f7fe;
+    padding-top: 30px;
+    text-align: center;
+    color: #888;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+footer .footer_link, footer .footer_link:visited {
+    color: lightblue;
+    text-decoration: none;
+}
+
+footer .footer_link:hover {
+    text-decoration: underline;
+}

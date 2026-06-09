@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="container">
       <header>
-        <h1>Weather App</h1>
+        <h2>Weather App</h2>
         <form class="search-form" id="search-form">
           <input
             type="text"
@@ -29,19 +30,20 @@
       <main>
         <div class="weather-info">
           <div class="weather-details">
-            <h2 id="current-city" class="city">San Francisco</h2>
+            <h1 id="current-city" class="city">San Francisco</h1>
             <p>
               <span id="current-date">Tuesday 14:49</span>,
               <span id="current-description">scattered clouds</span>
               <br />
-              Humidity: <span id="current-humidity">66</span>%, Wind:
-              <span id="current-wind">3.13</span>km/h
+              Humidity: <strong><span id="current-humidity">66</span>%</strong>, Wind:
+              <strong><span id="current-wind">3.13</span>km/h</strong>
             </p>
           </div>
-          <p class="temperature-para">
-            <span id="current-temp-img">🌥️</span
-            ><span id="current-temperature">12</span><span>&deg;F</span>
-          </p>
+          <div class="temperature-container">
+            <div class="current-temp-img" id="current-temp-img">🌥️</div>
+            <div class="current-temperature" id="current-temperature">12</div>
+            <div class="current-temperature-unit">&deg;F</div>
+          </div>
         </div>
       </main>
       <footer>
@@ -52,19 +54,20 @@
             href="https://github.com/TomariCodes"
             target="_blank"
             >Tomari Southern</a
-          >, is open-sourced on
+          >, is
           <a
             class="footer_link"
             href="https://github.com/TomariCodes/project-weather"
             target="_blank"
-            >GitHub</a
           >
-          and website hosted on
+            open-sourced on GitHub</a
+          >
+          and website
           <a
             class="footer_link"
             href="https://mp-weather-app.netlify.app//"
             target="_blank"
-            >Netlify</a
+            >hosted on Netlify</a
           >.
         </p>
       </footer>
