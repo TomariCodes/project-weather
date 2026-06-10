@@ -2,11 +2,65 @@ let searchFormElement = document.getElementById("search-form");
 let searchInputElement = document.getElementById("search-input");
 let cityTextElement = document.getElementById("current-city");
 
-function performSearch(event) {
+
+let currentDateElement = document.getElementById("current-date");
+let currentDescription = document.getElementById("current-description");
+let currentTemperatureElement = document.getElementById("current-temperature");
+let currentHumidityElement = document.getElementById("current-humidity");
+let currentWindElement = document.getElementById("current-wind");
+
+function formatDate(date) {
+    let days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+    ];
+
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+
+    if (hours < 10) {
+        hours = `0${hours}`;
+    }
+
+    if (minutes < 10) {
+        minutes = `0${minutes}`;
+    }
+
+    return `${days[date.getDay()]} ${hours}:${minutes}`;
+}
+
+
+function handleResponse(response) {
+    console.log("API Response:", response.data);
+    let data = response.data;
+    
+    cityTextElement.innerHTML = data.city;
+    currentDateElement.innerHTML = formatDate(new Date());
+    currentDescription.innerHTML = `${data.condition.description}`;
+    currentTemperatureElement.innerHTML = `${Math.round(data.temperature.current)}`;
+    currentHumidityElement.innerHTML = `${data.temperature.humidity}`;
+    currentWindElement.innerHTML = `${data.wind.speed}`;
+}
+
+
+function searchCity(city) {
+    let apiKey = "d723abdbd1batbf0d4fo3fa95586fbba";
+    let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
+    axios.get(apiURL).then(handleResponse);
+}
+
+function handleSubmitSearch(event) {
   event.preventDefault();
   let searchInput = searchInputElement.value;
-  cityTextElement.innerHTML = searchInput;
+  searchCity(searchInput);
   console.log("Performing search for:", searchInput);
 }
 
-searchFormElement.addEventListener("submit", performSearch);
+searchFormElement.addEventListener("submit", handleSubmitSearch);
+
+searchCity("Chicago");
