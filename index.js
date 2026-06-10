@@ -8,6 +8,7 @@ let currentDescription = document.getElementById("current-description");
 let currentTemperatureElement = document.getElementById("current-temperature");
 let currentHumidityElement = document.getElementById("current-humidity");
 let currentWindElement = document.getElementById("current-wind");
+let currentIconElement = document.getElementById("current-temp-img");
 
 function formatDate(date) {
     let days = [
@@ -36,15 +37,15 @@ function formatDate(date) {
 
 
 function handleResponse(response) {
-    console.log("API Response:", response.data);
     let data = response.data;
     
     cityTextElement.innerHTML = data.city;
-    currentDateElement.innerHTML = formatDate(new Date());
+    currentDateElement.innerHTML = formatDate(new Date(data.time * 1000));
     currentDescription.innerHTML = `${data.condition.description}`;
     currentTemperatureElement.innerHTML = `${Math.round(data.temperature.current)}`;
     currentHumidityElement.innerHTML = `${data.temperature.humidity}`;
     currentWindElement.innerHTML = `${data.wind.speed}`;
+    currentIconElement.innerHTML = `<img src="${data.condition.icon_url}" alt="${data.condition.description}">`;
 }
 
 
