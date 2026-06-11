@@ -1,14 +1,15 @@
 let searchFormElement = document.getElementById("search-form");
 let searchInputElement = document.getElementById("search-input");
+
 let cityTextElement = document.getElementById("current-city");
-
-
 let currentDateElement = document.getElementById("current-date");
 let currentDescription = document.getElementById("current-description");
 let currentTemperatureElement = document.getElementById("current-temperature");
 let currentHumidityElement = document.getElementById("current-humidity");
 let currentWindElement = document.getElementById("current-wind");
 let currentIconElement = document.getElementById("current-temp-img");
+
+let forecastElement = document.getElementById("forecast");
 
 function formatDate(date) {
     let days = [
@@ -62,6 +63,28 @@ function handleSubmitSearch(event) {
   console.log("Performing search for:", searchInput);
 }
 
+function displayForecast() {
+    let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+
+    days.forEach((day) => {
+            let forecastHTML = `
+                    <div class="forecast-day">
+                    <div class="forecast-date">${day}</div>
+                    <div class="forecast-day-icon">🌧️</div>
+                    <div class="forecast-temperatures">
+                      <div class="forecast-temp max">14&deg;</div>
+                      <div class="forecast-temp min">10&deg;</div>
+                    </div>
+                  </div>`;
+        
+            forecastElement.innerHTML += forecastHTML;
+
+    })
+}
+
+
+
 searchFormElement.addEventListener("submit", handleSubmitSearch);
 
 searchCity("Chicago");
+displayForecast();
